@@ -1,14 +1,12 @@
 package com.chat.app.controller;
 
 import com.chat.app.model.ChatMessage;
-import lombok.AllArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@AllArgsConstructor
+@Controller
 public class ChatController {
 
   @MessageMapping("/sendMessage")
@@ -17,7 +15,7 @@ public class ChatController {
     return message;
   }
 
-  @GetMapping("chat")
+  @GetMapping("/chat")
   public String chat() {
     return "chat";
   }
